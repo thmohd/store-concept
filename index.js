@@ -61,6 +61,18 @@ function goals(state = [], action){
   }
 }
 
+//our state should be object
+// {
+//  todos: [],
+//  goals: []
+// }
+function app(state = {}, action){
+  return {
+    todos: todos(state.todos, action),
+    goals: todos(state.goals, action)
+  }
+}
+
 //Store
 function createStore(reducer) {
 
@@ -94,7 +106,7 @@ function createStore(reducer) {
 
 /// Process example
 // define store
-const store = createStore(todos)
+const store = createStore(app)
 //get state
 store.getState()
 // listene to the changes of the state/ subscribe
