@@ -3,3 +3,14 @@
 // 2. A way to get the state.
 // 3. A way Listen to changes on the state.
 // 4. A way to Update the state
+
+function createStore() {
+
+  let state
+
+  const getState = () => state
+
+  return {
+    getState,
+  }
+}
