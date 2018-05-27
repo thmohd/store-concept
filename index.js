@@ -41,7 +41,7 @@ function todos(state =[], action) {
 }
 
 //Store
-function createStore() {
+function createStore(reducer) {
 
   // The store should have four parts
   // 1. The state
@@ -60,7 +60,7 @@ function createStore() {
   }
 
   const dispatch = (action) => {
-      state = todos(state, action)
+      state = reducer(state, action)
       listeners.forEach((listener) => listener())
   }
 
@@ -73,7 +73,7 @@ function createStore() {
 
 /// Process example
 // define store
-const store = createStore()
+const store = createStore(todos)
 //get state
 store.getState()
 // listene to the changes of the state/ subscribe
