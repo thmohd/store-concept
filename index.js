@@ -77,7 +77,7 @@ const store = createStore(todos)
 //get state
 store.getState()
 // listene to the changes of the state/ subscribe
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
   console.log('The new state is', store.getState())
 })
 
