@@ -60,7 +60,7 @@ function createStore() {
   }
 
   const dispatch = (action) => {
-      // 1. call reducer
+      state = todos(state, action)
       // 2. subscribe
   }
 
