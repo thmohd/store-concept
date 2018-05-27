@@ -34,12 +34,20 @@
 
 /// Reducer Function (must be pure function)
 
-function todos(state =[], action) {
-  if (action.type === 'ADD_TODO'){
-    return state.concat([action.todo])
+function todos(state = [], action) {
+  switch(action.type){
+    case 'ADD_TODO':
+      return state.concat([action.todo])
+    case 'REMOVE_TODO':
+      return state.filter((todo) => todo.id != action.id)
+    case 'TOGGLE_TODO':
+      return state.map((todo) =>{
+        return todo.id !== action.id ? todo :
+            Object.assign({},todo, {complete: !todo.complete})
+      })
+    default:
+      return state
   }
-
-  return state
 }
 
 //Store
@@ -94,3 +102,13 @@ const unsubscribe = store.subscribe(() => {
      }
    }
  )
+
+ store.dispatch({
+  type: 'REMOVE_TODO',
+  id: 1
+})
+
+  store.dispatch({
+    type: 'TOGGLE_TODO',
+    id: 0
+  })
