@@ -52,7 +52,8 @@ function createStore() {
   }
 
   const dispatch = (action) => {
-
+      // 1. call reducer
+      // 2. subscribe
   }
 
   return {
@@ -61,3 +62,14 @@ function createStore() {
     dispatch
   }
 }
+
+/// Process example
+// define store
+const store = createStore()
+//get state
+store.getState()
+// listene to the changes of the state/ subscribe
+store.subscribe(() => {
+  console.log('The new state is', store.getState())
+})
+ 
