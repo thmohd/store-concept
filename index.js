@@ -61,7 +61,7 @@ function createStore() {
 
   const dispatch = (action) => {
       state = todos(state, action)
-      // 2. subscribe
+      listeners.forEach((listener) => listener())
   }
 
   return {
