@@ -72,4 +72,15 @@ store.getState()
 store.subscribe(() => {
   console.log('The new state is', store.getState())
 })
- 
+
+ //call dispatch function where we send action
+ store.dispatch(
+   {
+     type: 'ADD_TODO',
+     todo: {
+       id: 0,
+       name: 'Learn Redux',
+       complete: false,
+     }
+   }
+ )
