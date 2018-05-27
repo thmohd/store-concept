@@ -33,7 +33,7 @@
 
 
 /// Reducer Function (must be pure function)
-
+// take care of the todos
 function todos(state = [], action) {
   switch(action.type){
     case 'ADD_TODO':
@@ -45,6 +45,17 @@ function todos(state = [], action) {
         return todo.id !== action.id ? todo :
             Object.assign({},todo, {complete: !todo.complete})
       })
+    default:
+      return state
+  }
+}
+// take care of the goals
+function goals(state = [], action){
+  switch(action.type){
+    case 'ADD_GOAL':
+      return state.concat([action.goal])
+    case 'REMOVE_GOAL':
+      return state.filter((goal) => goal.id !== action.id)
     default:
       return state
   }
