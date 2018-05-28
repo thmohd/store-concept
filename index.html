@@ -220,7 +220,7 @@
     return (
       <ul>
       {props.items.map(item => {
-        return <li>{item.name}</li>
+        return <li key={item.id}>{item.name}</li>
       })}
       </ul>
     )
@@ -283,6 +283,11 @@
   }
 
     class App extends React.Component {
+      componentDidMount(){
+          const { store } = this.props
+
+          store.subscribe(() => this.forceUpdate())
+      }
 
       render() {
         const { store } = this.props
