@@ -221,12 +221,13 @@
     return (
       <ul>
       {props.items.map(item => {
-        return <li
-            key={item.id}
-            style={{textDecoration: item.complete ? 'line-through': ''}}
-            onClick={ () => props.toggleItem && props.toggleItem(item.id) }
-            >
-          {item.name}
+        return <li key={item.id}>
+            <span
+              style={{textDecoration: item.complete ? 'line-through': ''}}
+              onClick={ () => props.toggleItem && props.toggleItem(item.id) }
+              >
+              {item.name}
+            </span>
           <button onClick={()=> props.removeItem(item.id) }>X</button>
         </li>
       })}
