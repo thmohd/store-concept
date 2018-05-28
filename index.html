@@ -216,11 +216,41 @@
 
   <script type="text/babel">
 
+  function List(props){
+    return (
+      <ul>
+        <li>List</li>
+      </ul>
+    )
+  }
+  class Goals extends React.Component {
+    render() {
+      return (
+        <div>
+         <h1>Goal List</h1>
+         <List />
+        </div>
+      )
+    }
+  }
+
+  class Todos extends React.Component {
+    render() {
+      return (
+        <div>
+         <h1>Todo List</h1>
+          <List />
+        </div>
+      )
+    }
+  }
+
     class App extends React.Component {
       render() {
         return (
           <div>
-            React App
+            <Todos />
+            <Goals />
           </div>
         )
       }
